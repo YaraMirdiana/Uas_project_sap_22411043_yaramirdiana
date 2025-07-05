@@ -89,9 +89,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/karyawan/gaji', [DashboardController::class, 'lihatGaji'])->name('gaji.lihat');
         Route::get('/karyawan/profil', [DashboardController::class, 'profilKaryawan'])->name('profil.karyawan');
 
-        // Cuti - Pengajuan (Gunakan method formKaryawan untuk tampilan berbeda)
-        Route::get('/karyawan/ajukan-cuti', [CutiController::class, 'formKaryawan'])->name('cuti.ajukan');
-        Route::post('/karyawan/ajukan-cuti', [CutiController::class, 'store'])->name('cuti.ajukan.store');
+    Route::get('/karyawan/ajukan', [CutiController::class, 'formKaryawan'])->name('cuti.ajukan');
+    Route::post('/karyawan/ajukan', [CutiController::class, 'store'])->name('cuti.ajukan.store');
+
+//     Route::get('/karyawan/ajukan-cuti', [CutiController::class, 'formKaryawan'])->name('cuti.ajukan');
+// Route::post('/karyawan/ajukan-cuti', [CutiController::class, 'store'])->name('cuti.ajukan.store');
+
+Route::get('/karyawan/lihat-gaji', [DashboardController::class, 'lihatGaji'])->name('karyawan.gaji');
+
     });
 
     // =============================

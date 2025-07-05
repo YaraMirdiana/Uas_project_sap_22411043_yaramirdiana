@@ -87,7 +87,8 @@
   {{-- MAIN CONTENT --}}
   <div class="main">
     <div class="container-fluid">
-      <p class="text-muted">Selamat datang di Dashboard Karyawan</p>
+      {{-- <p class="text-muted">Selamat datang di Dashboard Karyawan</p> --}}
+<p class="text-black">Selamat Datang, {{ $karyawan->nama ?? auth()->user()->name }}</p>
 
       <div class="row">
         <div class="col-md-4 mb-4">

@@ -90,9 +90,11 @@ class CutiController extends Controller
 
         
     public function formKaryawan()
-    {
-        $karyawan = Karyawan::where('email', auth()->user()->email)->firstOrFail();
+{
+    $userEmail = auth()->user()->email;
+    $karyawan = Karyawan::where('email', $userEmail)->firstOrFail();
 
-        return view('karyawan.cuti.ajukan', compact('karyawan'));
-    }
+    return view('karyawan.cuti.ajukan', compact('karyawan'));
+}
+
 }

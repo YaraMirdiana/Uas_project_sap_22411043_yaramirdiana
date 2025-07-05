@@ -40,11 +40,14 @@ class DashboardController extends Controller
     }
 
     // DASHBOARD KARYAWAN
-    public function karyawan()
-    {
-        $user = Auth::user();
-        return view('karyawan.dashboard', compact('user'));
-    }
+   public function karyawan()
+{
+    $user = auth()->user();
+    $karyawan = Karyawan::where('email', $user->email)->firstOrFail();
+
+    return view('karyawan.dashboard', compact('karyawan'));
+}
+
 
     // PROFIL SUPERADMIN
     public function profilSuperadmin()
@@ -65,11 +68,12 @@ class DashboardController extends Controller
     }
 
     // FITUR LIHAT GAJI UNTUK KARYAWAN
-    public function lihatGaji()
-    {
-        $karyawan = Karyawan::where('email', auth()->user()->email)->firstOrFail();
-        $gaji = Gaji::where('karyawan_id', $karyawan->id)->get();
+   public function lihatGaji()
+{
+    $karyawan = Karyawan::where('email', auth()->user()->email)->firstOrFail();
+    $gaji = Gaji::where('karyawan_id', $karyawan->id)->get();
 
-        return view('karyawan.gaji.index', compact('gaji', 'karyawan'));
-    }
+    return view('karyawan.gaji.index', compact('gaji', 'karyawan'));
+}
+
 }

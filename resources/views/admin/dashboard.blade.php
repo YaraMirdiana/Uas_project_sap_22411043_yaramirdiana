@@ -86,7 +86,7 @@
   {{-- MAIN CONTENT --}}
   <div class="main">
     <div class="container-fluid">
-      <p class="text-muted">Selamat datang di Dashboard Admin Perusahaan</p>
+      <p class="text-muted">Selamat datang, Pt Indofood</p>
 
       <div class="row">
         <div class="col-md-4 mb-4">
